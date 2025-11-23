@@ -1,0 +1,28 @@
+#ifndef CLOWNCD_MP3_H
+#define CLOWNCD_MP3_H
+
+#include <stddef.h>
+
+#define DR_MP3_NO_STDIO
+#define DRMP3_API static
+#define DRMP3_PRIVATE static
+#include "clowncd/audio/libraries/dr_mp3.h"
+
+#include "clowncd/clowncommon/clowncommon.h"
+
+#include "clowncd/audio-common.h"
+#include "clowncd/file-io.h"
+
+typedef struct ClownCD_MP3
+{
+	drmp3 dr_mp3;
+	drmp3_seek_point seek_points[0x100];
+} ClownCD_MP3;
+
+cc_bool ClownCD_MP3Open(ClownCD_MP3 *mp3, ClownCD_File *file, ClownCD_AudioMetadata* metadata);
+void ClownCD_MP3Close(ClownCD_MP3 *mp3);
+
+cc_bool ClownCD_MP3Seek(ClownCD_MP3 *mp3, size_t frame);
+size_t ClownCD_MP3Read(ClownCD_MP3 *mp3, short *buffer, size_t total_frames);
+
+#endif /* CLOWNCD_MP3_H */
