@@ -371,8 +371,8 @@ struct Object {
 -(void) updateSettings {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    object.configuration.general.region = [userDefaults integerForKey:@"plum.v1.30.region"] == 0 ? CLOWNMDEMU_REGION_DOMESTIC : CLOWNMDEMU_REGION_OVERSEAS ;
-    object.configuration.general.tv_standard = [userDefaults integerForKey:@"plum.v1.30.tvStandard"] == 0 ? CLOWNMDEMU_TV_STANDARD_NTSC : CLOWNMDEMU_TV_STANDARD_PAL;
+    object.configuration.general.region = [userDefaults integerForKey:@"plum.v1.35.region"] == 0 ? CLOWNMDEMU_REGION_DOMESTIC : CLOWNMDEMU_REGION_OVERSEAS ;
+    object.configuration.general.tv_standard = [userDefaults integerForKey:@"plum.v1.35.tvStandard"] == 0 ? CLOWNMDEMU_TV_STANDARD_NTSC : CLOWNMDEMU_TV_STANDARD_PAL;
 }
 
 -(void) input:(NSInteger)slot button:(uint32_t)button pressed:(BOOL)pressed {
