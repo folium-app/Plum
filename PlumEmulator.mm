@@ -337,7 +337,9 @@ struct Object {
             object.output.MixerEnd();
             
             if (auto buffer = [[PlumEmulator sharedInstance] framebuffer])
-                buffer(object.framebuffer.data(), object.width, object.height);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    buffer(object.framebuffer.data(), object.width, object.height);
+                });
             
             auto frameEnd = steady_clock::now();
             auto elapsed = frameEnd - frameStart;

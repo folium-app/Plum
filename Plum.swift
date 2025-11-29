@@ -132,7 +132,7 @@ public class Plum {
         emulator.framebuffer = buffer
     }
     
-    public func input(_ slot: Int, _ button: SGButton, _ pressed: Bool) {
-        emulator.input(slot, button: button.rawValue, pressed: pressed)
+    public func button(button: SGButton, player: Int, pressed: Bool) {
+        emulator.input(player, button: button.rawValue, pressed: pressed)
     }
 }
